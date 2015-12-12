@@ -3,11 +3,11 @@
 <html lang="en">
  
 <head>
-    <title>Python Flask Bucket List App</title>
-    <!--<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
-    <link href="{{ url_for('static', filename='css/stylesheet.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <title>Class Scheduler</title>    
+    <link type = "text/css" href="static/css/stylesheet.css" rel="stylesheet">
+    <link type = "text/css" href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link type = "text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}" rel="stylesheet">
+    <link type = "text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">-->
 </head>
  
 <body>      
@@ -16,8 +16,8 @@
         <div class="text-center header">
             <h1>Welcome to the class scheduler!</h1>
         </div>
-        <form class="form-horizontal signUp">
-            <div class="form-group">
+        <form class="form-horizontal">
+            <div class="form-group form-custom">
                 <label for="inputEmail" class="col-xs-4 control-label">Email ID</label>
                 <div class="col-xs-4">
                     <input type="email" class="form-control" id="inputEmail" placeholder="Email">
@@ -25,69 +25,19 @@
             </div>
 
             <div class="form-group">
-                <label for="inputPassword" label for="inputEmail" class="col-xs-4 control-label">Password</label>
+                <label for="inputPassword" class="col-xs-4 control-label">Password</label>
                 <div class="col-xs-4">
                     <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
                 </div>
             </div>            
         </form>
-        <div class="text-center">
+        <div class="text-center btn-custom">
             <button type = "button" class="btn btn-primary">Log In</button>
             <a class="btn btn-primary" href="signUp">Sign Up</a>
-        </div>        
-    </div>
- <!--   <div class="container">
-        <div class="header">
-            <nav>
-                <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">Home</a>
-                    </li>
-                    <li role="presentation"><a href="#">Sign In</a>
-                    </li>
-                    <li role="presentation"><a href="showSignUp">Sign Up</a>
-                    </li>
-                </ul>
-            </nav>
-            <h3 class="text-muted">Python Flask App</h3>
         </div>
- 
-        <div class="jumbotron">
-            <h1>Bucket List App</h1>
-            <p class="lead"></p>
-            <p><a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign up today</a>
-            </p>
-        </div>
- 
-        <div class="row marketing">
-            <div class="col-lg-6">
-                <h4>Bucket List</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
- 
-                <h4>Bucket List</h4>
-                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
- 
-                <h4>Bucket List</h4>
-                <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-            </div>
- 
-            <div class="col-lg-6">
-                <h4>Bucket List</h4>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
- 
-                <h4>Bucket List</h4>
-                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
- 
-                <h4>Bucket List</h4>
-                <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-            </div>
-        </div>
- 
-        <footer class="footer">
-            <p>&copy; Company 2015</p>
-        </footer>
- 
-    </div> -->
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    </div>    
+
+   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
 </body>
  

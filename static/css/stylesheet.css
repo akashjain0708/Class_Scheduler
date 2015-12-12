@@ -1,11 +1,11 @@
-.customBtn{
-	text-align: center;
-}
-
-.signUp{	
+.header{
 	margin-top: 10%;
 }
 
-.header{
-	margin-top: 20%;
+.form-custom{	
+	margin-top: 10%;
+}
+
+.btn-custom{
+	margin-top: 4%
 }
