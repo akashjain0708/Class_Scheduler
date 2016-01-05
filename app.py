@@ -23,6 +23,9 @@ def main():
 			#"text":"Hey!"}
 	#posts = handle.userData
 	#post_result = posts.insert_one(post)	
+	document = handle.userData.find_one({"email": "abc"});
+	#print(document)
+	#print(document["password"])
 	return render_template('index.html');
 
 @app.route("/signUp")
@@ -35,16 +38,35 @@ def login():
 	user_email = request.form['inputEmail']	
 	user_password = request.form['inputPassword']
 	user_confirm_password = request.form['confirmPassword']
-	# validate the received values
-	if user_password!=user_confirm_password:
-		return json.dumps({'html':'<span>All fields good !!</span>'})
+	# validate the received values	
+	if not (user_name and user_email and user_password and user_confirm_password):		
+		return json.dumps({'status':'ERROR', 'errorMessage':'Enter all fields!'})
+	elif user_password!=user_confirm_password:
+		return json.dumps({'status':'ERROR', 'errorMessage':"Passwords do not match!"})
 	else:
 		post = {"name": user_name, "password":generate_password_hash(user_password), "email":user_email}
 		post_result = handle.userData.insert_one(post)
+		return json.dumps({'status':'OK', 'redirect':url_for('schedule')})
 		#return json.dumps({'html':'<span>All fields good !!</span>'})
-		flash("All fields good! Thank you for signing up!")
-		return redirect(url_for('index'))
-	return render_template('index.html')
+		#flash("All fields good! Thank you for signing up!")			
+
+@app.route('/loginCheck', methods=['POST'])
+def loginCheck():
+	user_email = request.form['inputEmail']	
+	user_password = request.form['inputPassword']	
+	# validate the received values	
+	if not (user_name and user_email and user_password and user_confirm_password):		
+		return json.dumps({'status':'ERROR', 'errorMessage':'Enter all fields!'})	
+	else:
+		document = handle.userData.find_one({"email": user_email});
+		if check_password_hash(document["password"], user_password):
+			return json.dumps({'status':'OK', 'redirect':url_for('schedule')})
+		else:
+			return json.dumps({'status':'ERROR', 'errorMessage':"Passwords do not match for the user! Try again"})
+
+@app.route('/schedule')
+def schedule():
+	return render_template('schedule.html')
 
 if __name__ == '__main__':
 	app.run()

@@ -11,9 +11,12 @@
     <div class="container">  
         <div class="text-center header">
             <h1>Sign up for Class Scheduler!</h1>
-        </div>
+        </div>        
         <form id="signUpForm" class="form-horizontal">
-            <div class="form-group form-custom">
+            <div class="text-center header form-custom text-warning" id="successField">
+              <h5></h5>
+            </div>
+            <div class="form-group">
                 <label for="inputName" class="col-xs-4 control-label">First Name</label>
                 <div class="col-xs-4">
                     <input type="text" class="form-control" name="inputName" id="inputName" placeholder="First Name" required autofocus>
@@ -42,7 +45,7 @@
             </div>            
         </form>   
         <div class="text-center">
-            <button id= "loginBtn" class="btn btn-primary btn-custom">Sign me up!
+            <button id= "signConfirmBtn" class="btn btn-primary btn-custom">Sign me up!
             </button>            
         </div>
     </div>    
