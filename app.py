@@ -55,14 +55,16 @@ def loginCheck():
 	user_email = request.form['inputEmail']	
 	user_password = request.form['inputPassword']	
 	# validate the received values	
-	if not (user_name and user_email and user_password and user_confirm_password):		
+	if not (user_email and user_password):		
 		return json.dumps({'status':'ERROR', 'errorMessage':'Enter all fields!'})	
 	else:
 		document = handle.userData.find_one({"email": user_email});
-		if check_password_hash(document["password"], user_password):
+		if not document:
+			return json.dumps({'status':'ERROR', 'errorMessage':"Email ID doesn't exist! Try again!"})
+		elif check_password_hash(document["password"], user_password):
 			return json.dumps({'status':'OK', 'redirect':url_for('schedule')})
 		else:
-			return json.dumps({'status':'ERROR', 'errorMessage':"Passwords do not match for the user! Try again"})
+			return json.dumps({'status':'ERROR', 'errorMessage':"Incorrect password! Try again!})
 
 @app.route('/schedule')
 def schedule():
