@@ -64,7 +64,7 @@ def loginCheck():
 		elif check_password_hash(document["password"], user_password):
 			return json.dumps({'status':'OK', 'redirect':url_for('schedule')})
 		else:
-			return json.dumps({'status':'ERROR', 'errorMessage':"Incorrect password! Try again!})
+			return json.dumps({'status':'ERROR', 'errorMessage':"Incorrect password! Try again!"})
 
 @app.route('/schedule')
 def schedule():
